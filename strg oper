@@ -1,0 +1,37 @@
+ 
+import java.util.ArrayList; 
+public class StringOperations { 
+ArrayList<String> strings = new ArrayList<>(); 
+ 
+void appendString(String str) { 
+    strings.add(str); 
+} 
+ 
+void insertString(int index, String str) { 
+    strings.add(index, str); 
+} 
+ 
+boolean searchString(String str) { 
+    return strings.contains(str); 
+} 
+ 
+void listStringsStartingWith(char letter) { 
+    for (String str : strings) { 
+        if (str.charAt(0) == letter) { 
+            System.out.println(str); 
+        } 
+    } 
+}
+public static void main(String[] args) { 
+    StringOperations so = new StringOperations(); 
+ 
+    so.appendString("Apple"); 
+    so.appendString("Banana"); 
+    so.appendString("Avocado"); 
+    so.insertString(1, "Apricot"); 
+ 
+    System.out.println("Search for 'Banana': " + so.searchString("Banana")); 
+    System.out.println("Strings starting with 'A':"); 
+    so.listStringsStartingWith('A'); 
+} 
+} 
