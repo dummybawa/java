@@ -1,0 +1,53 @@
+abstract class Shape { 
+    int dimension1; 
+    int dimension2; 
+ 
+    Shape(int d1, int d2) { 
+        dimension1 = d1; 
+        dimension2 = d2; 
+    } 
+ 
+    abstract void printArea(); 
+} 
+ 
+class Rectangle extends Shape { 
+    Rectangle(int length, int breadth) { 
+        super(length, breadth); 
+    } 
+ 
+    void printArea() { 
+        int area = dimension1 * dimension2; 
+        System.out.println("Area of Rectangle: " + area); 
+    } 
+} 
+class Triangle extends Shape { 
+    Triangle(int base, int height) { 
+        super(base, height); 
+    } 
+    void printArea() { 
+        double area = 0.5 * dimension1 * dimension2; 
+        System.out.println("Area of Triangle: " + area); 
+    } 
+} 
+class Circle extends Shape { 
+    Circle(int radius) { 
+        super(radius, 0); 
+    } 
+ 
+    void printArea() { 
+        double area = Math.PI * Math.pow(dimension1, 2); 
+        System.out.println("Area of Circle: " + area); 
+    } 
+} 
+public class ShapeTest { 
+    public static void main(String[] args) { 
+        Shape s1 = new Rectangle(10, 20); 
+        s1.printArea(); 
+         
+        Shape s2 = new Triangle(10, 20); 
+        s2.printArea(); 
+         
+        Shape s3 = new Circle(7); 
+        s3.printArea(); 
+    } 
+} 
