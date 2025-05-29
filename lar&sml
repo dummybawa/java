@@ -16,9 +16,6 @@ public class MinMax
   int min = arr[0], max = arr[0]; 
   for(int i = 0; i < n; i++) 
   { 
- 
-8 
- 
    if(min > arr[i]) 
     min = arr[i]; 
    if(max < arr[i]) 
