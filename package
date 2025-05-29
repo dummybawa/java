@@ -1,0 +1,101 @@
+Currency.java 
+package converter; 
+import java.util.Scanner; 
+import java.io.*; 
+public class Currency { 
+ double inr, usd; 
+ Scanner s = new Scanner(System.in); 
+ public void dollartorupee() { 
+  System.out.println("Enter dollars to convert into Rupees"); 
+  usd = s.nextDouble(); 
+  inr = usd * 67; 
+  System.out.println("Dollar=" + usd + " equal to INR=" + inr); 
+ } 
+ public void rupeetodollar() { 
+  System.out.println("Enter Rupee to convert into Dollars:"); 
+  inr = s.nextDouble(); 
+  usd = inr / 67; 
+  System.out.println("Rupee=" + inr + " equal to Dollars=" + usd); 
+ } 
+} 
+Distance.java 
+package converter; 
+import java.util.; 
+import java.io.; 
+public class Distance { 
+ Scanner sc = new Scanner(System.in); 
+ double m, km; 
+ public void mtokm() { 
+  System.out.print("Enter in meter"); 
+  m = sc.nextDouble(); 
+  km = (m / 1000); 
+  System.out.println(m + "m equal to " + km + " kilometres"); 
+ } 
+ public void kmtom() { 
+  System.out.print("Enter in km"); 
+  km = sc.nextDouble(); 
+  m = (km * 10000); 
+  System.out.println(km + "km equal to " + m + " metres"); 
+ } 
+} 
+ 
+Time.java 
+package converter; 
+import java.util.; 
+import java.io.; 
+public class Time { 
+ int hours, seconds, minutes; 
+ int input; 
+ Scanner sc = new Scanner(System.in); 
+ public void secondtohours() { 
+  System.out.print("Enter the number of seconds"); 
+  input = sc.nextInt(); 
+  hours = input / 3600; 
+  minutes = (input % 3600) / 60; 
+  seconds = (input % 3600) % 60; 
+  System.out.println("Hours: " + hours); 
+  System.out.println("Minutes: " + minutes); 
+  System.out.println("Seconds: " + seconds); 
+ } 
+ public void minutestohours() { 
+  System.out.print("Enter the number of minutes."); 
+  minutes = sc.nextInt(); 
+  hours = minutes / 60; 
+  minutes = minutes % 60; 
+  System.out.println("Hours: " + hours); 
+  System.out.println("Minutes: " + minutes); 
+ } 
+} 
+ 
+Converter.java 
+package converter; 
+import java.util.; 
+import java.io.; 
+public class Converter { 
+ public static void main(String[] args) { 
+  Scanner s = new Scanner(System.in); 
+  int choice = 1, ch; 
+  Currency c = new Currency(); 
+  Distance d = new Distance(); 
+  Time t = new Time(); 
+  do { 
+   System.out.println("1. dollar to rupee"); 
+   System.out.println("2. rupee to dollar"); 
+   System.out.println("3. meter to kilometer"); 
+   System.out.println("4. kilometer to meter"); 
+   System.out.println("5. seconds to hours"); 
+   System.out.println("6. minutes to hours"); 
+   choice = s.nextInt(); 
+   switch(choice) { 
+    case 1: c.dollartorupee(); break; 
+    case 2: c.rupeetodollar(); break; 
+    case 3: d.mtokm(); break; 
+    case 4: d.kmtom(); break; 
+    case 5: t.secondtohours(); break; 
+    case 6: t.minutestohours(); break; 
+   } 
+   System.out.println("Enter 0 to quit and 1 to continue"); 
+   ch = s.nextInt(); 
+  } while(ch == 1); 
+ } 
+} 
